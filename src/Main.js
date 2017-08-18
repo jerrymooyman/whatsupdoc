@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import {
   Alert,
   AppRegistry,
-  Button,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
+import { MDButton } from './components/atoms'
 import Auth0 from 'react-native-auth0';
 
 var credentials = require('./auth0-credentials');
 const auth0 = new Auth0(credentials);
 
-export default class whatsupdoc extends Component {
+class main extends Component {
   _onLogin() {
     auth0
         .webAuth
@@ -33,9 +33,9 @@ export default class whatsupdoc extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.header}>
-          Auth0Sample - Login
+          An Awesome App
         </Text>
-        <Button onPress={this._onLogin} title="Log In" />
+        <MDButton onPress={this._onLogin} title="Log In" />
       </View>
     );
   }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
   header: {
@@ -55,4 +55,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('whatsupdoc', () => whatsupdoc);
+AppRegistry.registerComponent('whatsupdoc', () => main);
